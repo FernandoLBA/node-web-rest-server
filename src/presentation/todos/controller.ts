@@ -1,5 +1,7 @@
 import { Request, Response } from "express";
+
 import { prisma } from "../../data/postgres";
+import { CreateTodoDto, UpdateTodoDto } from "../../domain/dtos";
 
 export class TodosController {
   // * Inyección de dependencias
@@ -46,13 +48,15 @@ export class TodosController {
    * @returns
    */
   public createTodo = async (req: Request, res: Response) => {
-    const { text } = req.body;
+    // * Aquí invocamos al método de la clase y le mandamos el body, esto retorna un array:
+    // *    error  ,       instancia
+    // * [undefined, new CreateTodoDto(text)]
+    const [error, createTodoDto] = CreateTodoDto.create(req.body);
 
-    if (!text)
-      return res.status(400).json({ error: "Text property is required" });
+    if (error) return res.status(400).json({ error });
 
     const todo = await prisma.todo.create({
-      data: { text },
+      data: createTodoDto!,
     });
 
     res.json(todo);
@@ -66,13 +70,9 @@ export class TodosController {
    */
   public updateTodo = async (req: Request, res: Response) => {
     const id = +req.params.id;
-    const { text, completedAt } = req.body;
+    const [error, updateTodoDto] = UpdateTodoDto.update({ ...req.body, id });
 
-    if (isNaN(+id))
-      return res.status(400).json({ error: "Id argument is not a number" });
-
-    if (!text)
-      return res.status(400).json({ error: "Text property is required" });
+    if (error) return res.status(400).json({ error });
 
     const todo = await prisma.todo.findUnique({ where: { id } });
 
@@ -83,10 +83,7 @@ export class TodosController {
       where: {
         id: +id,
       },
-      data: {
-        text,
-        completedAt: completedAt ? new Date(completedAt) : null,
-      },
+      data: updateTodoDto!.values,
     });
 
     res.json(updatedTodo);
