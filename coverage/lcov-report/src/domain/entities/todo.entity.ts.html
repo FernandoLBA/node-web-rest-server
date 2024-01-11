@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">38.88% </span>
+                <span class="strong">77.77% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>14/36</span>
+                <span class='fraction'>28/36</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">40% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>2/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>2/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">38.88% </span>
+                <span class="strong">77.77% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>14/36</span>
+                <span class='fraction'>28/36</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -101,10 +101,10 @@
 <a name='L36'></a><a href='#L36'>36</a>
 <a name='L37'></a><a href='#L37'>37</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -118,29 +118,29 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export class TodoEntity {
-<span class="fstat-no" title="function not covered" >  constructor(</span>
-<span class="cstat-no" title="statement not covered" >    public id: number,</span>
-<span class="cstat-no" title="statement not covered" >    public text: string,</span>
-<span class="cstat-no" title="statement not covered" >    public completedAt?: Date | null</span>
-<span class="cstat-no" title="statement not covered" >  ) {}</span>
+  constructor(
+    public id: number,
+    public text: string,
+    public completedAt?: Date | null
+  ) {}
 &nbsp;
 <span class="fstat-no" title="function not covered" >  get isCompleted() {</span>
 <span class="cstat-no" title="statement not covered" >    return !!this.completedAt;</span>
@@ -153,23 +153,23 @@
    * @param object
    * @returns
    */
-  public static <span class="fstat-no" title="function not covered" >fromObject(object: { [key: string]: any }): TodoEntity {</span>
-<span class="cstat-no" title="statement not covered" >    const { id, text, completedAt } = object;</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    if (!id) throw "Id property is required";</span>
-<span class="cstat-no" title="statement not covered" >    if (!text) throw "Text property is required";</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    let newCompletedAt;</span>
-<span class="cstat-no" title="statement not covered" >    if (completedAt) {</span>
+  public static fromObject(object: { [key: string]: any }): TodoEntity {
+    const { id, text, completedAt } = object;
+&nbsp;
+    if (!id) <span class="branch-0 cbranch-no" title="branch not covered" >throw "Id property is required";</span>
+    if (!text) <span class="branch-0 cbranch-no" title="branch not covered" >throw "Text property is required";</span>
+&nbsp;
+    let newCompletedAt;
+    if (completedAt) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
 <span class="cstat-no" title="statement not covered" >      newCompletedAt = new Date(completedAt);</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >      if (isNaN(newCompletedAt.getTime())) {</span>
 <span class="cstat-no" title="statement not covered" >        throw "CompletedAt is not a valid date";</span>
 <span class="cstat-no" title="statement not covered" >      }</span>
 <span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    return new TodoEntity(id, text, newCompletedAt);</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
+&nbsp;
+    return new TodoEntity(id, text, newCompletedAt);
+  }
 }
 &nbsp;</pre></td></tr></table></pre>
 
@@ -178,7 +178,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-01-08T05:15:37.051Z
+                at 2024-01-10T15:19:57.837Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

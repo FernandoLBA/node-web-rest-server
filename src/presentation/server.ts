@@ -9,7 +9,8 @@ interface Options {
 }
 
 export class Server {
-  private app = express();
+  public readonly app = express();
+  private serverListener?: any;
   private readonly port: number;
   private readonly publicPath: string;
   private readonly routes: Router;
@@ -24,7 +25,7 @@ export class Server {
   async start() {
     // * Middlewares
     this.app.use(express.json()); // * Permite recibir json
-    this.app.use(express.urlencoded({extended: true})); // * Permite recibir x-www-form-urlencoded
+    this.app.use(express.urlencoded({ extended: true })); // * Permite recibir x-www-form-urlencoded
     this.app.use(compression());
 
     // * Public Folder
@@ -41,8 +42,14 @@ export class Server {
       res.sendFile(indexPath);
     });
 
-    this.app.listen(this.port, () => {
-      console.log(`Server running on port ${this.port}`);
-    });
+    this.serverListener = this.app
+      .listen(this.port, () => {
+        console.log(`Server running on port ${this.port}`);
+      })
+  }
+
+  // * Cierra el listener y no permite nuevas conexiones, solo mantiene la actual
+  public close() {
+    this.serverListener?.close();
   }
 }

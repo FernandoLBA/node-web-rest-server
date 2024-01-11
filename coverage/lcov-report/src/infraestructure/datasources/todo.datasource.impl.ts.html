@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">28.3% </span>
+                <span class="strong">56.6% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>15/53</span>
+                <span class='fraction'>30/53</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">40% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>2/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">28.3% </span>
+                <span class="strong">56.6% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>15/53</span>
+                <span class='fraction'>30/53</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -122,23 +122,23 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -174,24 +174,24 @@ import { CreateTodoDto, TodoEntity, UpdateTodoDto } from "../../domain";
 import { TodoDatasource } from "../../domain/datasources/todo.datasource";
 &nbsp;
 export class TodoDatasourceImpl implements TodoDatasource {
-  async <span class="fstat-no" title="function not covered" >getAll(): Promise&lt;TodoEntity[]&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    const todos = await prisma.todo.findMany();</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    // * Este método retorna un array de TodoEntity, no es lo mismo</span>
-<span class="cstat-no" title="statement not covered" >    // * que el array de objetos todo, hay que mapearlo y convertir</span>
-<span class="cstat-no" title="statement not covered" >    // * cada objeto todo en un TodoEntity.</span>
-<span class="cstat-no" title="statement not covered" >    return todos.map((todo) =&gt; TodoEntity.fromObject(todo));</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
+  async getAll(): Promise&lt;TodoEntity[]&gt; {
+    const todos = await prisma.todo.findMany();
 &nbsp;
-  async <span class="fstat-no" title="function not covered" >findById(id: number): Promise&lt;TodoEntity&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    const todo = await prisma.todo.findUnique({</span>
-<span class="cstat-no" title="statement not covered" >      where: { id },</span>
-<span class="cstat-no" title="statement not covered" >    });</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    if (!todo) throw `Todo with id ${id} is not found`;</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    return TodoEntity.fromObject(todo);</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
+    // * Este método retorna un array de TodoEntity, no es lo mismo
+    // * que el array de objetos todo, hay que mapearlo y convertir
+    // * cada objeto todo en un TodoEntity.
+    return todos.map((todo) =&gt; TodoEntity.fromObject(todo));
+  }
+&nbsp;
+  async findById(id: number): Promise&lt;TodoEntity&gt; {
+    const todo = await prisma.todo.findUnique({
+      where: { id },
+    });
+&nbsp;
+    if (!todo) <span class="branch-0 cbranch-no" title="branch not covered" >throw `Todo with id ${id} is not found`;</span>
+&nbsp;
+    return TodoEntity.fromObject(todo);
+  }
 &nbsp;
   async <span class="fstat-no" title="function not covered" >create(createTodoDto: CreateTodoDto): Promise&lt;TodoEntity&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    const todo = await prisma.todo.create({ data: createTodoDto });</span>
@@ -229,7 +229,7 @@ export class TodoDatasourceImpl implements TodoDatasource {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-01-08T05:15:37.051Z
+                at 2024-01-10T15:19:57.837Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">63.26% </span>
+                <span class="strong">73.46% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>62/98</span>
+                <span class='fraction'>72/98</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">16.66% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/6</span>
+                <span class='fraction'>3/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">63.26% </span>
+                <span class="strong">73.46% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>62/98</span>
+                <span class='fraction'>72/98</span>
             </div>
         
             
@@ -185,10 +185,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -198,12 +194,16 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -282,11 +282,11 @@ export class TodosController {
    * @param req
    * @param res
    */
-  public getTodos = <span class="fstat-no" title="function not covered" >(req: Request, res: Response) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    new GetTodos(this.todoRepository)</span>
-<span class="cstat-no" title="statement not covered" >      .execute()</span>
-<span class="cstat-no" title="statement not covered" >      .then((todos) =&gt; res.json(todos))</span>
-<span class="cstat-no" title="statement not covered" >      .catch((error) =&gt; res.status(400).json({ error }));</span>
+  public getTodos = (req: Request, res: Response) =&gt; {
+    new GetTodos(this.todoRepository)
+      .execute()
+      .then((todos) =&gt; res.json(todos))
+      .catch((error) =&gt; res.status(400).json({ error }));
   };
 &nbsp;
   /**
@@ -295,13 +295,13 @@ export class TodosController {
    * @param res
    * @returns
    */
-  public getTodoById = <span class="fstat-no" title="function not covered" >(req: Request, res: Response) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    const { id } = req.params;</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    new GetTodo(this.todoRepository)</span>
-<span class="cstat-no" title="statement not covered" >      .execute(+id)</span>
-<span class="cstat-no" title="statement not covered" >      .then((todo) =&gt; res.json(todo))</span>
-<span class="cstat-no" title="statement not covered" >      .catch((error) =&gt; res.status(400).json({ error }));</span>
+  public getTodoById = (req: Request, res: Response) =&gt; {
+    const { id } = req.params;
+&nbsp;
+    new GetTodo(this.todoRepository)
+      .execute(+id)
+      .then((todo) =&gt; res.json(todo))
+      .catch((error) =&gt; res.status(400).json({ error }));
   };
 &nbsp;
   /**
@@ -364,7 +364,7 @@ export class TodosController {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-01-08T05:15:37.051Z
+                at 2024-01-10T15:19:57.837Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
