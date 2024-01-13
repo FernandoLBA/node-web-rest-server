@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">73.46% </span>
+                <span class="strong">84.69% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>72/98</span>
+                <span class='fraction'>83/98</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/6</span>
+                <span class='fraction'>4/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">73.46% </span>
+                <span class="strong">84.69% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>72/98</span>
+                <span class='fraction'>83/98</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -198,6 +198,12 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -207,23 +213,17 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -310,18 +310,18 @@ export class TodosController {
    * @param res
    * @returns
    */
-  public createTodo = <span class="fstat-no" title="function not covered" >(req: Request, res: Response) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    // * Aquí invocamos al método de la clase y le mandamos el body, esto retorna un array:</span>
-<span class="cstat-no" title="statement not covered" >    // *    error  ,       instancia</span>
-<span class="cstat-no" title="statement not covered" >    // * [undefined, new CreateTodoDto(text)]</span>
-<span class="cstat-no" title="statement not covered" >    const [error, createTodoDto] = CreateTodoDto.create(req.body);</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    if (error) return res.status(400).json({ error });</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    new CreateTodo(this.todoRepository)</span>
-<span class="cstat-no" title="statement not covered" >      .execute(createTodoDto!)</span>
-<span class="cstat-no" title="statement not covered" >      .then((todo) =&gt; res.json(todo))</span>
-<span class="cstat-no" title="statement not covered" >      .catch((error) =&gt; res.status(400).json({ error }));</span>
+  public createTodo = (req: Request, res: Response) =&gt; {
+    // * Aquí invocamos al método de la clase y le mandamos el body, esto retorna un array:
+    // *    error  ,       instancia
+    // * [undefined, new CreateTodoDto(text)]
+    const [error, createTodoDto] = CreateTodoDto.create(req.body);
+&nbsp;
+    if (error) return res.status(400).json({ error });
+&nbsp;
+    new CreateTodo(this.todoRepository)
+      .execute(createTodoDto!)
+      .then((todo) =&gt; res.status(201).json(todo))
+      .catch((error) =&gt; res.status(400).json({ error }));
   };
 &nbsp;
   /**
@@ -364,7 +364,7 @@ export class TodosController {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-01-10T15:19:57.837Z
+                at 2024-01-11T13:12:34.940Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

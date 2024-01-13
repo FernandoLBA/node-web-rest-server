@@ -56,10 +56,42 @@ describe("todo routes testing", () => {
   });
 
   test("should return a 404 not found apu/todos/:id", async () => {
-    const { body } = await request(testServer.app)
-      .get(`/api/todos/777`)
-      .expect(404);
+    const todoId = 999;
 
-    console.log(body);
+    const { body } = await request(testServer.app)
+      .get(`/api/todos/${todoId}`)
+      .expect(400);
+
+    expect(body).toEqual({ error: `Todo with id ${todoId} is not found` });
+  });
+
+  test("should return a new TODO api/todos", async () => {
+    const { body } = await request(testServer.app)
+      .post("/api/todos")
+      .send(todo1)
+      .expect(201);
+
+    expect(body).toEqual({
+      id: expect.any(Number),
+      text: todo1.text,
+    });
+  });
+
+  test("should return an error if the TODO text is not present api/todos", async () => {
+    const { body } = await request(testServer.app)
+      .post("/api/todos")
+      .send({})
+      .expect(400);
+
+    expect(body).toEqual({ error: "Text property is required" });
+  });
+
+  test("should return an error if the TODO text is an empty string api/todos", async () => {
+    const { body } = await request(testServer.app)
+      .post("/api/todos")
+      .send({ text: "" })
+      .expect(400);
+
+    expect(body).toEqual({ error: "Text property is required" });
   });
 });

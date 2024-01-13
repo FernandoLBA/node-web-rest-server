@@ -7,7 +7,7 @@ export class CreateTodoDto {
     // * Como estamos creando solo necesitamos la propiedad text
     const { text } = props;
 
-    if (!text) return ["Text property is required", undefined];
+    if (!text || text.length === 0) return ["Text property is required", undefined];
 
     // * Retorna una instancia del cosntructor privado con el text
     return [undefined, new CreateTodoDto(text)];
