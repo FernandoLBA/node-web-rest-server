@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">64.15% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>34/53</span>
+                <span class='fraction'>45/54</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">60% </span>
+                <span class="strong">80% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/5</span>
+                <span class='fraction'>4/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">64.15% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>34/53</span>
+                <span class='fraction'>45/54</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -116,13 +116,31 @@
 <a name='L51'></a><a href='#L51'>51</a>
 <a name='L52'></a><a href='#L52'>52</a>
 <a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -136,27 +154,11 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -172,6 +174,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { prisma } from "../../data/postgres";
 import { CreateTodoDto, TodoEntity, UpdateTodoDto } from "../../domain";
 import { TodoDatasource } from "../../domain/datasources/todo.datasource";
+import { CustomError } from "../../domain";
 &nbsp;
 export class TodoDatasourceImpl implements TodoDatasource {
   async getAll(): Promise&lt;TodoEntity[]&gt; {
@@ -188,7 +191,7 @@ export class TodoDatasourceImpl implements TodoDatasource {
       where: { id },
     });
 &nbsp;
-    if (!todo) throw `Todo with id ${id} is not found`;
+    if (!todo) throw new CustomError(`Todo with id ${id} is not found`, 404);
 &nbsp;
     return TodoEntity.fromObject(todo);
   }
@@ -199,17 +202,17 @@ export class TodoDatasourceImpl implements TodoDatasource {
     return TodoEntity.fromObject(todo);
   }
 &nbsp;
-  async <span class="fstat-no" title="function not covered" >updateById(updateTodoDto: UpdateTodoDto): Promise&lt;TodoEntity&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    // * Usamos la propia función de esta clase para validar si existe</span>
-<span class="cstat-no" title="statement not covered" >    await this.findById(updateTodoDto.id);</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    const updatedTodo = await prisma.todo.update({</span>
-<span class="cstat-no" title="statement not covered" >      where: { id: updateTodoDto.id },</span>
-<span class="cstat-no" title="statement not covered" >      data: updateTodoDto!.values,</span>
-<span class="cstat-no" title="statement not covered" >    });</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    return TodoEntity.fromObject(updatedTodo);</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
+  async updateById(updateTodoDto: UpdateTodoDto): Promise&lt;TodoEntity&gt; {
+    // * Usamos la propia función de esta clase para validar si existe
+    await this.findById(updateTodoDto.id);
+&nbsp;
+    const updatedTodo = await prisma.todo.update({
+      where: { id: updateTodoDto.id },
+      data: updateTodoDto!.values,
+    });
+&nbsp;
+    return TodoEntity.fromObject(updatedTodo);
+  }
 &nbsp;
   async <span class="fstat-no" title="function not covered" >deleteById(id: number): Promise&lt;TodoEntity&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    // * Usamos la propia función de esta clase para validar si existe</span>
@@ -229,7 +232,7 @@ export class TodoDatasourceImpl implements TodoDatasource {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-01-11T13:12:34.940Z
+                at 2024-01-29T05:58:05.889Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
